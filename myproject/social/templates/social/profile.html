@@ -5,19 +5,41 @@
 {% block content %}
 
 <div class="column">
-
+    <!-- Profile Header -->
     <div class="block">
-    <h1 class="title is-1">
-        {{profile.user.username|upper}}'s Posts
-    </h1>
+        <h1 class="title is-1 has-text-centered">
+            {{profile.user.username|upper}}'s Posts
+        </h1>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">Posts</p>
+                    <p class="title">3,456</p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">Following</p>
+                    <p class="title">123</p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">Followers</p>
+                    <p class="title">456K</p>
+                </div>
+            </div>
+        </nav>
     </div>
+
+    <!-- List all Posts for Profile -->
 
 </div>
 
 <div class="column is-one-third">
 
     <div class="block">
-        <a href="#">
+        <a href="{% url 'social:profile_list' %}">
             <button class="button is-dark is-outlined is-fullwidth">
                 All Profiles
             </button>
@@ -25,6 +47,7 @@
     </div>
 
     <div class="block">
+        <!-- List all Following -->
         <h3 class="title is-4">
             {{profile.user.username}} follows:
         </h3>
@@ -32,7 +55,7 @@
             <ul>
             {% for following in profile.follows.all %}
                 <li>
-                    <a href="#">
+                    <a href="{% url 'social:profile' following.id %}">
                         {{ following }}
                     </a>
                 </li>
@@ -42,6 +65,7 @@
     </div>
 
     <div class="block">
+        <!-- List all Followers -->
         <h3 class="title is-4">
             {{profile.user.username}} is followed by:
         </h3>
@@ -49,7 +73,7 @@
             <ul>
             {% for follower in profile.followed_by.all %}
                 <li>
-                    <a href="#">
+                    <a href="{% url 'social:profile' follower.id %}">
                         {{ follower }}
                     </a>
                 </li>
