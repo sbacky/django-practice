@@ -81,3 +81,29 @@ Users will also need a way to create content and view the content that they and 
 * Create views to handle these submissions
 * Build templates to display existing content
 * Make it look decent
+
+## Goals
+
+### Part 1: Models and Relationships
+
+Step 1: Set Up the Base Project
+
+1. Activated virtual environment - COMPLETED
+2. Created new Django project called myproject - COMPLETED
+3. Created Django app called social - COMPLETED
+4. Add social to projects INSTALLED_APPS path in settings.py file - COMPLETED
+5. Cleaned up admin portal to focus on the essential functionality needed - COMPLETED
+6. Created a few users social network - COMPLETED
+7. Extended default User model with Profile model - COMPLETED
+8. Link User and Profile models with a signal - COMPLETED
+
+Part2: Templates and Front-End Styling
+
+9. Create base.html template to form standard feel of social app - COMPLETED
+10. Add template page to display list of all profiles - COMPLETED
+11. Add logic to display all profiles minus current logged in user in views.profile_list - COMPLETED
+12. Integrate Bulma CSS to style your app - COMPLETED
+13. Use template inheritance to reduce repetition - COMPLETED
+14. Structure Django templates in a folder hierarchy - COMPLETED
+15. Build routing and view functions - COMPLETED
+16. Interlink pages of your app using dynamic URLs - COMPLETED
