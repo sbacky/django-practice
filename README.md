@@ -88,7 +88,7 @@ Users will also need a way to create content and view the content that they and 
 
 Step 1: Set Up the Base Project
 
-At the end of this part, you’ll be able to create new users through the Django admin interface and your app will automatically generate a profile for each new user and set up the necessary connection
+At the end of this part, Django admin interface will be able to be used to create users and this will automatically generate a profile for each new user and set up the necessary connection between user and profile models.
 
 1. Implement one-to-one and many-to-many relationships between Django models - COMPLETED
 2. Extend the Django user model with a custom Profile model - COMPLETED
@@ -96,7 +96,7 @@ At the end of this part, you’ll be able to create new users through the Django
 
 Step 2: Templates and Front-End Styling
 
-At the end of this part, you’ll be able to access detail pages and the profile list page and navigate between them. You’ll also have Bulma added to style the pages.
+At the end of this part, detail pages and the profile list page will be accessible and can navigate between them. Bulma will also be used to style the pages.
 
 4. Integrate Bulma CSS and style your app - COMPLETED
 5. Use template inheritance to reduce repetition - COMPLETED
@@ -106,7 +106,7 @@ At the end of this part, you’ll be able to access detail pages and the profile
 
 Step 3: Follows and Posts
 
-At the end of this part, your social network will have all the pages you’d expect, and you’ll be able to create posts on the back end and display them on the front end. Your users will be able to discover and follow other users and read the contents of the profiles that they follow. They’ll also be able to click a button that sends an HTTP POST request handled by Django to unfollow a profile if they want to stop reading a certain user’s content.
+At the end of this part, basic pages will be built out, and can create posts on the back end and display them on the front end. Users will be able to discover and follow other users and read the contents of the profiles that they follow. They’ll also be able to click a button that sends an HTTP POST request handled by Django to unfollow a profile if they want to stop reading a certain user’s content.
 
 9. Create the front-end interface to let users follow and unfollow profiles - COMPLETED
 10. Submit and handle a POST request in Django using buttons - COMPLETED
@@ -116,7 +116,7 @@ At the end of this part, your social network will have all the pages you’d exp
 
 Step 4: Forms and Submissions
 
-In the fourth part, you’ll learn how to build Django forms on top of an existing model. You’ll also set up and handle more HTTP POST request submissions so that your users can post their text-based messages.
+In the fourth part, use Django forms on top of an Messages model to setup form for creating a Message. Build back-end to handle more HTTP POST request submissions so that users can post their text-based messages.
 
 14. Create and render Django forms from your Messages model - COMPLETED
 15. Prevent double submissions and display helpful error messages - COMPLETED
