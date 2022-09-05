@@ -12,6 +12,11 @@ def profile_list(request):
     return render(request, "social/profile_list.html", {"profiles": profiles})
 
 def profile(request, pk):
+    # Create profile for any user that doesnt have one
+    if not hasattr(request.user, 'profile'):
+        missing_profile = Profile(user=request.user)
+        missing_profile.save()
+    # Update followers for profile at pk in request URL
     profile = Profile.objects.get(pk=pk)
     if request.method =="POST":
         current_user_profile = request.user.profile
