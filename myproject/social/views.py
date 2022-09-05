@@ -5,7 +5,7 @@ from django.shortcuts import render
 from .models import Profile
 
 def dashboard(request):
-    return render(request, "base.html")
+    return render(request, "social/dashboard.html")
 
 def profile_list(request):
     profiles = Profile.objects.exclude(user=request.user)
