@@ -2,7 +2,7 @@
 
 The purpose of this project is to build a simple social network that allows the user to post short text-based messages. Users will be able to follow other users to see their posts or unfollow them to stop seeing their posts.
 
-A high-level overview of the steps that this project will follow, include: Set up the base project, Extend the django user model, Implement a Post-Save hook.
+A high-level overview of the steps that this project, include: Set up the base project, Extend the django user model, Implement a Post-Save hook.
 
 ## **Project Overview**
 
