@@ -1,15 +1,35 @@
 # social/views.py
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from .models import Profile
+from .models import Profile, Messages
+from .forms import MessageForm
+
 
 def dashboard(request):
-    return render(request, "social/dashboard.html")
+    form = MessageForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            message = form.save(commit=False)
+            message.user = request.user
+            message.save()
+            return redirect('social:dashboard')
+    
+    followed_messages = Messages.objects.filter(
+        user__profile__in=request.user.profile.follows.all()
+    ).order_by("-created_at")    
+    
+    return render(
+        request,
+        "social/dashboard.html",
+        {"form": form, "messages": followed_messages},
+    )
+
 
 def profile_list(request):
     profiles = Profile.objects.exclude(user=request.user)
     return render(request, "social/profile_list.html", {"profiles": profiles})
+
 
 def profile(request, pk):
     # Create profile for any user that doesnt have one
