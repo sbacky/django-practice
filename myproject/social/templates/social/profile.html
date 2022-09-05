@@ -31,19 +31,19 @@
             <div class="level-item has-text-centered">
                 <div>
                     <p class="heading">Posts</p>
-                    <p class="title">3,456</p>
+                    <p class="title">{{ message_count }}</p>
                 </div>
             </div>
             <div class="level-item has-text-centered">
                 <div>
                     <p class="heading">Following</p>
-                    <p class="title">123</p>
+                    <p class="title">{{ following_count }}</p>
                 </div>
             </div>
             <div class="level-item has-text-centered">
                 <div>
                     <p class="heading">Followers</p>
-                    <p class="title">456K</p>
+                    <p class="title">{{ follower_count }}</p>
                 </div>
             </div>
         </nav>
@@ -74,7 +74,7 @@
     <div class="block">
         <div class="panel is-success">
             <h3 class="panel-heading">
-                {{profile.user.username}} follows:
+                Following:
             </h3>
             {% for following in profile.follows.all %}
                 <a class="panel-block" href="{% url 'social:profile' following.id %}">
@@ -87,7 +87,7 @@
     <div class="block">
         <div class="panel is-success">
             <h3 class="panel-heading">
-                {{profile.user.username}} is followed by:
+                Followers:
             </h3>
             {% for follower in profile.followed_by.all %}
                 <a class="panel-block" href="{% url 'social:profile' follower.id %}">
