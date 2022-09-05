@@ -116,7 +116,7 @@ At the end of this part, basic pages will be built out, and can create posts on 
 
 Step 4: Forms and Submissions
 
-In the fourth part, use Django forms on top of an existing model to setup form for creating a Message. Build back-end to handle more HTTP POST request submissions so that users can post their text-based messages.
+In the fourth part, use Django forms on top of an Messages model to setup form for creating a Message. Build back-end to handle more HTTP POST request submissions so that users can post their text-based messages.
 
 14. Create and render Django forms from your Messages model - COMPLETED
 15. Prevent double submissions and display helpful error messages - COMPLETED
