@@ -3,15 +3,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<!-- Main COntent-->
 <div class="column">
-    <!-- Profile Header -->
     <div class="block">
+        <!-- Profile Header -->
         <div class="level is-mobile">
-            <h1 class="level-item title is-1">
+            <!-- Profile Title -->
+            <h1 class="level-left title is-1">
                 {{profile.user.username|upper}}'s Posts
             </h1>
-            <form class="level-item" method="post" action="">
+            <!-- Follow/Unfollow -->
+            <form class="level-right" method="post" action="">
                 {% csrf_token %}
                 <div class="buttons has-addons">
                     {% if profile in user.profile.follows.all %}
@@ -24,6 +26,7 @@
                 </div>
             </form>
         </div>
+        <!-- Profile Statistics -->
         <nav class="level is-mobile">
             <div class="level-item has-text-centered">
                 <div>
@@ -45,13 +48,21 @@
             </div>
         </nav>
     </div>
-
     <!-- List all Posts for Profile -->
-
+    <div class="content">
+        {% for message in profile.user.messages.all %}
+            <div class="box">
+                {{ message.body }}
+                <span class="is-small has-text-grey-light">
+                    ({{ message.created_at }})
+                </span>
+            </div>
+        {% endfor %}
+    </div>
 </div>
-
+<!-- Sidebar -->
 <div class="column is-one-third">
-
+    <!-- List All Profiles Button -->
     <div class="block">
         <a href="{% url 'social:profile_list' %}">
             <button class="button is-dark is-outlined is-fullwidth">
@@ -59,43 +70,32 @@
             </button>
         </a>
     </div>
-
+    <!-- List all Following -->
     <div class="block">
-        <!-- List all Following -->
-        <h3 class="title is-4">
-            {{profile.user.username}} follows:
-        </h3>
-        <div class="content">
-            <ul>
+        <div class="panel is-success">
+            <h3 class="panel-heading">
+                {{profile.user.username}} follows:
+            </h3>
             {% for following in profile.follows.all %}
-                <li>
-                    <a href="{% url 'social:profile' following.id %}">
-                        {{ following }}
-                    </a>
-                </li>
+                <a class="panel-block" href="{% url 'social:profile' following.id %}">
+                    {{ following }}
+                </a>
             {% endfor %}
-            </ul>
         </div>
     </div>
-
+    <!-- List all Followers -->
     <div class="block">
-        <!-- List all Followers -->
-        <h3 class="title is-4">
-            {{profile.user.username}} is followed by:
-        </h3>
-        <div class="content">
-            <ul>
+        <div class="panel is-success">
+            <h3 class="panel-heading">
+                {{profile.user.username}} is followed by:
+            </h3>
             {% for follower in profile.followed_by.all %}
-                <li>
-                    <a href="{% url 'social:profile' follower.id %}">
-                        {{ follower }}
-                    </a>
-                </li>
+                <a class="panel-block" href="{% url 'social:profile' follower.id %}">
+                    {{ follower }}
+                </a>
             {% endfor %}
-            </ul>
         </div>
     </div>
-
 </div>
 
 {% endblock content %}
