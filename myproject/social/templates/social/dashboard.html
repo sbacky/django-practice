@@ -4,17 +4,53 @@
 
 {% block content %}
 
+<!-- Main Content -->
 <div class="column">
-    {% for followed in user.profile.follows.all %}
-        {% for message in followed.user.messages.all %}
-            <div class="box">
-                {{ message.body }}
-                <span class="is-small has-text-grey-light">
-                    ({{ message.created_at }} by {{ message.user.username }})
-                </span>
-            </div>
-        {% endfor %}
+    <!-- Messages -->
+    {% for message in messages %}
+        <div class="box">
+            {{ message.body }}
+            <span class="is-small has-text-grey-light">
+                ({{ message.created_at }} by {{ message.user.username }})
+            </span>
+        </div>
     {% endfor %}
+</div>
+<!-- Sidebar -->
+<div class="column is-one-third">
+    <!-- Link to All Profiles -->
+    <div class="block">
+        <a href="{% url 'social:profile_list' %} ">
+            <button class="button is-dark is-outlined is-fullwidth">
+                All Profiles
+            </button>
+        </a>
+    </div>
+    <!-- Link to User Profile -->
+    <div class="block">
+        <a href="{% url 'social:profile' request.user.profile.id %} ">
+            <button class="button is-success is-light is-outlined is-fullwidth">
+                My Profile
+            </button>
+        </a>
+    </div>
+    <!-- Submit a Post -->
+    <div class="block">
+        <!-- Header -->
+        <div class="block">
+            <h2 class="title is-2">Add a Post</p>
+        </div>
+        <!-- Form -->
+        <div class="block">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="button is-success is-fullwidth is-medium mt-5"
+                        type="submit">Post
+                </button>
+            </form>
+        </div>
+    </div>
 </div>
 
 {% endblock content %}
