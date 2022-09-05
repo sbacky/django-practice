@@ -11,7 +11,7 @@
         <div class="box">
             {{ message.body }}
             <span class="is-small has-text-grey-light">
-                ({{ message.created_at }} by {{ message.user.username }})
+                ({{ message.created_at }} by <a href="{% url 'social:profile' message.user.profile.id %}">{{ message.user.username }}</a>)
             </span>
         </div>
     {% endfor %}

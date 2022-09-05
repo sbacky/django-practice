@@ -7,6 +7,7 @@ from .forms import MessageForm
 
 
 def dashboard(request):
+    # Get form from request
     form = MessageForm(request.POST or None)
     if request.method == "POST":
         if form.is_valid():
@@ -14,7 +15,7 @@ def dashboard(request):
             message.user = request.user
             message.save()
             return redirect('social:dashboard')
-    
+    # Get all posts from followers and order by -created_at
     followed_messages = Messages.objects.filter(
         user__profile__in=request.user.profile.follows.all()
     ).order_by("-created_at")    
@@ -46,5 +47,18 @@ def profile(request, pk):
             current_user_profile.follows.add(profile)
         elif action == 'unfollow':
             current_user_profile.follows.remove(profile)
-        current_user_profile.save()     
-    return render(request, "social/profile.html", {"profile": profile})
+        current_user_profile.save()
+    # Get follower count
+    follower_count: int = len(profile.follows.all())
+    following_count: int = len(profile.followed_by.all())
+    message_count: int = Messages.objects.filter(user_id=profile.user).count()
+    return render(
+        request,
+        "social/profile.html",
+        {
+            "profile": profile,
+            "follower_count": follower_count,
+            "following_count": following_count,
+            "message_count": message_count
+        },
+    )
