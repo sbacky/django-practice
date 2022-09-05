@@ -88,22 +88,38 @@ Users will also need a way to create content and view the content that they and 
 
 Step 1: Set Up the Base Project
 
-1. Activated virtual environment - COMPLETED
-2. Created new Django project called myproject - COMPLETED
-3. Created Django app called social - COMPLETED
-4. Add social to projects INSTALLED_APPS path in settings.py file - COMPLETED
-5. Cleaned up admin portal to focus on the essential functionality needed - COMPLETED
-6. Created a few users social network - COMPLETED
-7. Extended default User model with Profile model - COMPLETED
-8. Link User and Profile models with a signal - COMPLETED
+At the end of this part, you’ll be able to create new users through the Django admin interface and your app will automatically generate a profile for each new user and set up the necessary connection
 
-Part2: Templates and Front-End Styling
+1. Implement one-to-one and many-to-many relationships between Django models - COMPLETED
+2. Extend the Django user model with a custom Profile model - COMPLETED
+3. Customize the Django admin interface - COMPLETED
 
-9. Create base.html template to form standard feel of social app - COMPLETED
-10. Add template page to display list of all profiles - COMPLETED
-11. Add logic to display all profiles minus current logged in user in views.profile_list - COMPLETED
-12. Integrate Bulma CSS to style your app - COMPLETED
-13. Use template inheritance to reduce repetition - COMPLETED
-14. Structure Django templates in a folder hierarchy - COMPLETED
-15. Build routing and view functions - COMPLETED
+Step 2: Templates and Front-End Styling
+
+At the end of this part, you’ll be able to access detail pages and the profile list page and navigate between them. You’ll also have Bulma added to style the pages.
+
+4. Integrate Bulma CSS and style your app - COMPLETED
+5. Use template inheritance to reduce repetition - COMPLETED
+6. Structure Django templates in a folder hierarchy - COMPLETED
+7. Build routing and view functions - COMPLETED
+8. Interlink pages of your app using dynamic URLs - COMPLETED
+
+Step 3: Follows and Posts
+
+At the end of this part, your social network will have all the pages you’d expect, and you’ll be able to create posts on the back end and display them on the front end. Your users will be able to discover and follow other users and read the contents of the profiles that they follow. They’ll also be able to click a button that sends an HTTP POST request handled by Django to unfollow a profile if they want to stop reading a certain user’s content.
+
+9. Create the front-end interface to let users follow and unfollow profiles - COMPLETED
+10. Submit and handle a POST request in Django using buttons - COMPLETED
+11. Set up the model for your text-based content - COMPLETED
+12. Build styled templates to display content on the front end - COMPLETED
+13. Use intricate model relationships in template code - COMPLETED
+
+Step 4: Forms and Submissions
+
+In the fourth part, you’ll learn how to build Django forms on top of an existing model. You’ll also set up and handle more HTTP POST request submissions so that your users can post their text-based messages.
+
+14. Create and render Django forms from your Messages model - COMPLETED
+15. Prevent double submissions and display helpful error messages - COMPLETED
 16. Interlink pages of your app using dynamic URLs - COMPLETED
+17. Refactor a view function - COMPLETED
+18. Use QuerySet field lookups to filter your data on the back end - COMPLETED
