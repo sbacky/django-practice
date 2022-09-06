@@ -7,6 +7,8 @@ from .forms import MessageForm
 
 
 def dashboard(request):
+    if not request.user.is_authenticated:
+       return redirect('users:login')
     # Get form from request
     form = MessageForm(request.POST or None)
     if request.method == "POST":
@@ -48,7 +50,7 @@ def profile(request, pk):
         elif action == 'unfollow':
             current_user_profile.follows.remove(profile)
         current_user_profile.save()
-    # Get follower count
+    # Get follower, following, and message count
     follower_count: int = len(profile.follows.all())
     following_count: int = len(profile.followed_by.all())
     message_count: int = Messages.objects.filter(user_id=profile.user).count()

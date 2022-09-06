@@ -9,16 +9,27 @@
     <!-- Include the Bulma CSS framework for styling -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <title>Social Network</title>
+    <title>UBuh</title>
 </head>
 <body>
     <a href="{% url 'social:dashboard' %} ">
         <section class="hero is-small is-success mb-4">
             <div class="hero-body">
-                <h1 class="title is-1">Social Network</h1>
-                <p class="subtitle is-4">
-                    A tiny social network built with Django
-                </p>
+                <div class="level is-mobile">
+                    <div class="level-left">
+                        <h1 class="title is-1">Ubuh</h1>
+                        <p class="subtitle is-4">
+                            : Buh about it!
+                        </p>
+                    </div>
+                    <div class="level-right">
+                        {% if user.is_authenticated %}
+                            <a class="button is-danger" href="{% url 'users:logout' %}">Logout</a>
+                        {% else %}
+                            <a class="button" href="{% url 'users:login' %}">Login</a>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </section>
     </a>

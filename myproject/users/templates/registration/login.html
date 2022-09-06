@@ -1,0 +1,16 @@
+<!--users/templates/registration/login.html-->
+<!-- Can use 'users/base.html' to use users/templates/users/base.html -->
+<!-- Can use 'base.html' to use social/templates/base.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Login</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Login">
+</form>
+
+<a href="{% url 'users:dashboard' %}">Back to dashboard</a>
+{% endblock %}
