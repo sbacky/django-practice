@@ -1,7 +1,7 @@
 # social/urls.py
 
 from django.urls import path
-from .views import dashboard, profile_list, profile
+from social.views import dashboard, profile_list, profile
 
 app_name = "social"
 

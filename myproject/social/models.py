@@ -18,7 +18,7 @@ class Profile(models.Model):
         return self.user.username
 
 
-# Use decorator to Create a Profile for each new user.
+# Use decorator to Create a Profile for each new User.
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
